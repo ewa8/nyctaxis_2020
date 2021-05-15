@@ -1,0 +1,7 @@
+deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=nyctaxis2020 --api-key=ba128212-f524-421c-85a8-99a97b6d99ac
