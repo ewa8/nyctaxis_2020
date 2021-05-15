@@ -14,13 +14,11 @@ import pickle
 import json
 import sklearn
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
+
 token = open(".mapbox_token").read()
-
-
 
 #methods for converting the unix time to dates
 def unixTimeMillis(dt):
@@ -81,7 +79,7 @@ colors_sc = {'yellow': px.colors.sequential.YlOrBr, 'green': px.colors.sequentia
 
 
 #loading the machine learning model
-loaded_model = pickle.load(open('best_model_2.pkl', 'rb'))
+loaded_model = pickle.load(open('model_2.pkl', 'rb'))
 
 #zone look-ups for getting the location id for each zone
 zone_lookup = {feature['properties']['location_id']: feature for feature in gj['features']}
