@@ -17,7 +17,7 @@ import sklearn
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-
+server = app.server
 token = open(".mapbox_token").read()
 
 
@@ -340,7 +340,8 @@ app.layout = html.Div([
             html.Div([
             html.H3('Notebook:'),
             dcc.Markdown('''
-                The full notebook can be accessed at:
+                The full notebook can be accessed here: 
+                [Explainer notebook](https://nbviewer.jupyter.org/github/ewa8/nyctaxis_2020/blob/main/Final_project_notebook_3.ipynb)
             ''')
             ], style={'marginTop': 30, 'marginLeft':30})
         ])
@@ -615,4 +616,4 @@ def predict_color(result):
 
 # Stop with ctrl + alt + M
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
